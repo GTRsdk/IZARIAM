@@ -1,15 +1,15 @@
 <div id="mainview">
-    <h1 style="text-align:center">Ратуша</h1>
+    <h1 style="text-align:center">Town hall</h1>
 
 	<?php
 	$this->load->helper('form');
 	echo form_open('actions/rename');
 	?>
 	<div id="renameCity" class="contentBox01h">
-			<h3 class="header">Переименовать город</h3>
+			<h3 class="header">Rename the town</h3>
             <div class="content">
-				<div class="oldCityName"><span class="textLabel">Прежнее название города: </span><?=$this->Player_Model->now_town->name?></div>
-                <div class="newCityName"><label for="newCityName">Новое имя города: </label>
+				<div class="oldCityName"><span class="textLabel">Old name: </span><?=$this->Player_Model->now_town->name?></div>
+                <div class="newCityName"><label for="newCityName">New name: </label>
 				<?php $data = array(
 							  'name'        => 'name',
 							  'id'          => 'newCityName',
@@ -20,7 +20,7 @@
 				
 				$data = array(
 						'class'        => 'button',
-						'value'        => 'Принять название',
+						'value'        => 'Change name',
 					);
 				echo form_submit($data); ?>
                 </div>
