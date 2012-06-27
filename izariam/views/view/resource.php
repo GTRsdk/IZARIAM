@@ -25,7 +25,7 @@ Sawmill is improving all the inhabitants of the island. The greater the sawmill,
 	echo form_open('actions/workers/resource/'.$this->Island_Model->island->id, $attributes);
 	?>
         <div id="setWorkersBox" class="contentBox">
-            <h3 class="header"><span class="textLabel">Назначить рабочих</span></h3>
+            <h3 class="header"><span class="textLabel">Assign workers</span></h3>
             <div class="content">
                 <ul>
                     <li class="citizens"><span class="textLabel">Citizens: </span><span class="value" id="valueCitizens"><?=$peoples?></span></li>
