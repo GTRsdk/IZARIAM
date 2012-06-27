@@ -15,9 +15,9 @@
 ?>
 <div id="mainview">
     <div class="buildingDescription">
-        <h1>Лесопилка</h1>
-        <p>Древесина поступает на лесопилку из соседнего леса. После обработки она превращается в стройматериалы, необходимые для постройки зданий.
-Лесопилка улучшается всеми жителями острова. Чем больше лесопилка, тем больше рабочих Вы можете на ней использовать.</p>      
+        <h1>Sawmill</h1>
+        <p>Wood arrives at the sawmill of the nearby forest. After processing, it is converted into construction materials needed for construction of buildings.
+Sawmill is improving all the inhabitants of the island. The greater the sawmill, the more workers you can use in it.</p>      
     </div>
 	<?php
 	$this->load->helper('form');
@@ -28,34 +28,34 @@
             <h3 class="header"><span class="textLabel">Назначить рабочих</span></h3>
             <div class="content">
                 <ul>
-                    <li class="citizens"><span class="textLabel">Граждане: </span><span class="value" id="valueCitizens"><?=$peoples?></span></li>
-                    <li class="workers"><span class="textLabel">Работников: </span><span class="value" id="valueWorkers"><?=number_format($this->Player_Model->now_town->workers)?></span></li>
-                    <li class="gain" title="Производство:<?=floor($production)?>" alt="Производство:<?=number_format($production)?>">
-                        <span class="textLabel">Вместимость: </span>
+                    <li class="citizens"><span class="textLabel">Citizens: </span><span class="value" id="valueCitizens"><?=$peoples?></span></li>
+                    <li class="workers"><span class="textLabel">Workers: </span><span class="value" id="valueWorkers"><?=number_format($this->Player_Model->now_town->workers)?></span></li>
+                    <li class="gain" title="Production:<?=floor($production)?>" alt="Production:<?=number_format($production)?>">
+                        <span class="textLabel">Production: </span>
                         <div id="gainPoints">
                             <div id="resiconcontainer">
                                 <img id="resicon" src="<?=$this->config->item('style_url')?>skin/resources/icon_wood.gif" width="25" height="20" />
                             </div>
                         </div>
                         <div class="gainPerHour">
-                            <span id="valueResource" >+<?=number_format($production)?></span> <span class="timeUnit">в час</span>
+                            <span id="valueResource" >+<?=number_format($production)?></span> <span class="timeUnit">per hour</span>
                         </div>
                     </li>
                     <li class="costs">
-                        <span class="textLabel">Доход города: </span>
+                        <span class="textLabel">Income: </span>
                         <span id="valueWorkCosts" class="negative"><?=floor($this->Player_Model->saldo[$this->Player_Model->town_id])?></span>
-                        <img src="<?=$this->config->item('style_url')?>skin/resources/icon_gold.gif" title="Золото" alt="Золото">
-                        <span class="timeUnit"> в час</span>
+                        <img src="<?=$this->config->item('style_url')?>skin/resources/icon_gold.gif" title="gold" alt="gold">
+                        <span class="timeUnit"> per hour</span>
                     </li>
                 </ul> 
-                <div id="overchargeMsg" class="status nooc ocready oced">Перегрузка!</div>
+                <div id="overchargeMsg" class="status nooc ocready oced">Overload!</div>
                 <div class="slider" id="sliderbg">
                     <div class="actualValue" id="actualValue"></div>
                     <div class="overcharge" id="overcharge"></div>
                     <div id="sliderthumb"></div>
                 </div>
-                <a class="setMin" href="#reset" onClick="sliders['default'].setActualValue(0); return false;" title="нет рабочих"><span class="textLabel">мин.</span></a>
-                <a class="setMax" href="#max" onClick="sliders['default'].setActualValue(<?=$max?>); return false;" title="макс. число рабочих"><span class="textLabel">макс.</span></a>
+                <a class="setMin" href="#reset" onClick="sliders['default'].setActualValue(0); return false;" title="No workers"><span class="textLabel">min.</span></a>
+                <a class="setMax" href="#max" onClick="sliders['default'].setActualValue(<?=$max?>); return false;" title="Maximum number of workers"><span class="textLabel">max.</span></a>
 
 				<?php $data = array(
 						  'name'        => 'rw',
@@ -69,7 +69,7 @@
 				$data = array(
 						'id'        => 'inputWorkersSubmit',
 						'class'        => 'button',
-						'value'        => 'Подтверждение',
+						'value'        => 'Confirm',
 					);
 				echo form_submit($data); ?>
             </div>
@@ -78,17 +78,17 @@
     </form>
 
     <div id="resourceUsers" class="contentBox">
-        <h3 class="header"><span class="textLabel">Другие игроки на этом острове</span></h3>
+        <h3 class="header"><span class="textLabel">Other players on the island</span></h3>
         <div class="content">
             <table cellpadding="0" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Игрок                        </th>
-                        <th>Город                    </th>
-                        <th>Уровень                    </th>
-                        <th>Работников                    </th>
-                        <th>Пожертвовано                        </th>
-                        <th>Действия</th>
+                        <th>Player                        </th>
+                        <th>City                    </th>
+                        <th>Level                    </th>
+                        <th>Workers                    </th>
+                        <th>Donation                        </th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,11 +102,11 @@
     <?}?>
         <td class="ownerName"><?=$this->Island_Model->users[$i]->login?></td>
         <td class="cityName"><?=$this->Island_Model->towns[$i]->name?></td>
-        <td class="cityLevel">Уровень <?=$this->Island_Model->towns[$i]->pos0_level?></td>
-        <td class="cityWorkers"><?=$this->Island_Model->towns[$i]->workers?> Работников</td>
-        <td class="ownerDonation"><?=$this->Island_Model->towns[$i]->workers_wood?> <img src="<?=$this->config->item('style_url')?>skin/resources/icon_wood.gif" width="25" height="20" alt="Стройматериалы" /></td>
+        <td class="cityLevel">Level <?=$this->Island_Model->towns[$i]->pos0_level?></td>
+        <td class="cityWorkers"><?=$this->Island_Model->towns[$i]->workers?> Workers</td>
+        <td class="ownerDonation"><?=$this->Island_Model->towns[$i]->workers_wood?> <img src="<?=$this->config->item('style_url')?>skin/resources/icon_wood.gif" width="25" height="20" alt="Building Material" /></td>
         <?if($this->Player_Model->user->id != $this->Island_Model->users[$i]->id){?>
-        <td class="actions"><a href="<?=$this->config->item('base_url')?>game/sendIKMessage/<?=$this->Island_Model->towns[$i]->user?>/"><img src="<?=$this->config->item('style_url')?>skin/interface/icon_message_write.gif" alt="Создать сообщение" /></a></td>
+        <td class="actions"><a href="<?=$this->config->item('base_url')?>game/sendIKMessage/<?=$this->Island_Model->towns[$i]->user?>/"><img src="<?=$this->config->item('style_url')?>skin/interface/icon_message_write.gif" alt="Write Message" /></a></td>
         <?}?>
     </tr>
 <?}?>
