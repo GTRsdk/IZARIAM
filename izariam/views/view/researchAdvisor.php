@@ -1,10 +1,10 @@
 <div id="mainview">
     <div class="buildingDescription">
-        <h1>Советник по исследованиям</h1>
+        <h1>Research Advisor</h1>
         <p></p>
     </div>
     <div class="contentBox01h" id="currentResearch">
-        <h3 class="header"><span class="textLabel">Текущее исследование</span></h3>
+        <h3 class="header"><span class="textLabel">Current Research</span></h3>
         <div class="content">
             <ul class="researchTypes">
 <?for ($way = 1; $way <= 4; $way++){?>
@@ -32,16 +32,16 @@
                                         <span class="before"></span>
 <?switch($way){?>
 <?case 1:?>
-Мореходство
+Seafaring
 <?break;?>
 <?case 2:?>
-Экономика
+Economics
 <?break;?>
 <?case 3:?>
-Наука
+Science
 <?break;?>
 <?case 4:?>
-Милитаризм
+Military
 <?break;?>
 <?}?>
                                         <span class="after"></span>
@@ -53,7 +53,7 @@
 <?if ($this->Player_Model->ways[$way]['need_id'] > 0){?>
 <?$need = $this->Data_Model->get_research($this->Player_Model->ways[$way]['need_way'],$this->Player_Model->ways[$way]['need_id'],$this->Player_Model->research)?>
                         <div class="researchButton2">
-                        По крайней мере одно из требуемых исследований не были изучены (Следующее требуемое: <a href="<?=$this->config->item('base_url')?>game/researchDetail/<?=$this->Player_Model->ways[$way]['need_way']?>/<?=$this->Player_Model->ways[$way]['need_id']?>/"><?=$need['name']?></a>)
+                        At least one of the required studies have not been studied (required: <a href="<?=$this->config->item('base_url')?>game/researchDetail/<?=$this->Player_Model->ways[$way]['need_way']?>/<?=$this->Player_Model->ways[$way]['need_id']?>/"><?=$need['name']?></a>)
                         </div>
 <?}else{?>
 <?if($this->Player_Model->ways[$way]['points'] > $this->Player_Model->research->points){?>
@@ -63,10 +63,10 @@
     $this->db->update($this->session->userdata('universe').'_research');
 ?>
                         <div class="researchButton2">
-                        Не хватает исследовательских баллов.
+                        Not enough research points.
                         </div>
                         <div class="costs">
-                            <h5>Стоимость:</h5>
+                            <h5>Cost:</h5>
                             <ul class="resources">
                                 <li class="researchPoints"><?=number_format($this->Player_Model->ways[$way]['points'])?></li>
                             </ul>
@@ -79,11 +79,11 @@
 ?>
                         <div class="researchButton">
                             <a class="button build" style="padding-left:3px;padding-right:3px;"  href="<?=$this->config->item('base_url')?>actions/doResearch/<?=$way?>/<?=$this->Player_Model->ways[$way]['id']?>/">
-                                <span class="textLabel">Исследовать</span>
+                                <span class="textLabel">Research</span>
                             </a>			
                         </div>			
                         <div class="costs">		
-                            <h5>Стоимость:</h5>		
+                            <h5>Cost:</h5>		
                             <ul class="resources">		
                                 <li class="researchPoints"><?=number_format($this->Player_Model->ways[$way]['points'])?></li>
                             </ul>			
