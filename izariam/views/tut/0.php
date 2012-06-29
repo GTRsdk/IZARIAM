@@ -159,7 +159,7 @@
     <h3>Tutorial</h3>
     <a href="javascript:;" id="tutorialAdvisorCloseLink"></a>
     <div class="content">
-        <p>Welcome to the relm of Ikaria,<br />
+        <p>Welcome to the relm of iZariam,<br />
         We are your advisers and we will describe to you about all outstanding events, connected with your cities, military actions, research and diplomacy.<br /><br />
         We will appear at the beginning of every game and will describe about the first major steps into the game. If our help is necessary to you, press on the symbols in the upper left side of the play window.</p>
         <div class="centerButton">
