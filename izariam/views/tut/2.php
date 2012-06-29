@@ -106,16 +106,16 @@
 <div id="arrow">
 </div>
 <div id="tutorialAdvisor">
-    <div id="advisorImage" class="<?=$class?>"><a href="javascript:;" id="tutorialAdvisorLink" title="Обучение"></a></div>
+    <div id="advisorImage" class="<?=$class?>"><a href="javascript:;" id="tutorialAdvisorLink" title="Training"></a></div>
 </div>
 <div id="tutorialMessage">
-    <h3>Обучение</h3>
+    <h3>Training</h3>
     <a href="javascript:;" id="tutorialAdvisorCloseLink"></a>
     <div class="content">
-    <p>Привет,<br />
-Я Манурон, администратор. Конечно, я всегда знаю, что происходит здесь. Я собираюсь рассказать тебе о всех важных событиях, которые происходят в твоих городах.<br>
+    <p>Hi,<br />
+I am Manuron the administrator. Of course, I always know what's going on here. I'm going to tell you about all important events that happen in your city.<br>
 <br>
-Сейчас, я рекомендую тебе <b>построить академию</b>. Чтобы сделать это, нажми на один из красных флажков и выбери там академию.</p>
+Now, I recommend you build <b> Academy </b>. To do this, click on one of the red flags out there and choose the academy.</p>
 
         <div class="centerButton"><a href="javascript:;" id="okButton" class="button">ОК</a></div>
     <div class="footer"></div>
