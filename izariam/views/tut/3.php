@@ -107,16 +107,16 @@
 <div id="arrow">
 </div>
 <div id="tutorialAdvisor">
-    <div id="advisorImage" class="<?=$class?>"><a href="javascript:;" id="tutorialAdvisorLink" title="Обучение"></a></div>
+    <div id="advisorImage" class="<?=$class?>"><a href="javascript:;" id="tutorialAdvisorLink" title="Training"></a></div>
 </div>
 <div id="tutorialMessage">
-    <h3>Обучение</h3>
+    <h3>Training</h3>
     <a href="javascript:;" id="tutorialAdvisorCloseLink"></a>
     <div class="content">
-    <p>Привет,<br />
-меня зовут Лизиас и я буду представлять научно-технический прогресс вашей империи. В мои обязанности входит информировать вас о текущем статусе наших исследований.<br>
+    <p>Hello,<br />
+My name is Lizias and I will represent scientific and technical progress of your empire. My job is to inform you about the current status of our research.<br>
 <br>
-Если вы посетите нашу фантастическую академию, вы не встретите там очень умных людей, но вы можете дать людям возможность <b>начать исследование</b>. После того, как ученые соберут необходимую информацию об исследовании, моя фотография подсветится желтым цветом. Мы можете найти подробное описание каждого исследования в библиотеке академии.</p>
+If you visit our fantastic academy, you will not find there are very smart people, but you can give people the opportunity to begin the study. Once scientists will gather the necessary information about the study, my picture is highlighted in yellow. We can find a detailed description of each study in the library of the Academy.</p>
 
         <div class="centerButton"><a href="javascript:;" id="okButton" class="button">ОК</a></div>
     <div class="footer"></div>
