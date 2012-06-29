@@ -110,7 +110,7 @@
     <div class="content">
     <p>
         <?=$this->lang->line('training')?>,<br /><br />
-        Я Пелеус, начальник лесопилки. Наши прилежные рабочие трудятся здесь для создания строительных материалов для строений и кораблей. Строительные материалы также нужны для тренировки наших солдат. Отправляйся на лесопилку через кнопку `Остров` и назначь сколько твоих жителей будет работать там. Для возврата в город нажми кнопку `Город`.
+        I am Peleus, head of the sawmill. Our diligent workers are working here to create building materials for buildings and ships. Construction materials are also needed to train our soldiers. Go to the sawmill via the button `Island` and assign many of your people to work.
     </p>
         <div class="centerButton"><a href="javascript:;" id="okButton" class="button">ОК</a></div>
     <div class="footer"></div>
