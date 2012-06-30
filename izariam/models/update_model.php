@@ -203,7 +203,7 @@ class Update_Model extends Model
                                     $this->db->set($level_text, $this->CI->$model->towns[$i]->$level_text);
                                     $this->db->set($type_text, $this->CI->$model->towns[$i]->$type_text);
                                     // Отправляем сообщение
-                                    $message = ($this->CI->$model->towns[$i]->$level_text == 1) ? 'Строительство "<a href="'.$this->config->item('base_url').'game/city/'.$i.'/'.$this->Data_Model->building_class_by_type($buildings[0]['type']).'/'.$buildings[0]['position'].'/">'.$this->Data_Model->building_name_by_type($buildings[0]['type']).'</a>" завершено!' : 'Уровень здания "<a href="'.$this->config->item('base_url').'game/city/'.$i.'/'.$this->Data_Model->building_class_by_type($buildings[0]['type']).'/'.$buildings[0]['position'].'/">'.$this->Data_Model->building_name_by_type($buildings[0]['type']).'</a>" увеличен до '.$this->CI->$model->towns[$i]->$level_text.'!';
+                                    $message = ($this->CI->$model->towns[$i]->$level_text == 1) ? 'Сonstruction of "<a href="'.$this->config->item('base_url').'game/city/'.$i.'/'.$this->Data_Model->building_class_by_type($buildings[0]['type']).'/'.$buildings[0]['position'].'/">'.$this->Data_Model->building_name_by_type($buildings[0]['type']).'</a>" is complete!' : 'The building level of the "<a href="'.$this->config->item('base_url').'game/city/'.$i.'/'.$this->Data_Model->building_class_by_type($buildings[0]['type']).'/'.$buildings[0]['position'].'/">'.$this->Data_Model->building_name_by_type($buildings[0]['type']).'</a>" has been upgraded to '.$this->CI->$model->towns[$i]->$level_text.'!';
                                     $town_message = array(
                                         'user' => $this->CI->$model->user->id,
                                         'town' => $i,
@@ -439,7 +439,7 @@ class Update_Model extends Model
                    $res_level = ($is == 0) ? 'wood_level' : 'trade_level';
                    $res_count = ($is == 0) ? 'wood_count' : 'trade_count';
                    $res_start = ($is == 0) ? 'wood_start' : 'trade_start';
-                   $res_name = ($is == 0) ? 'Лесопилка' : $this->Data_Model->island_building_by_resource($island->trade_resource);
+                   $res_name = ($is == 0) ? 'Sawmill' : $this->Data_Model->island_building_by_resource($island->trade_resource);
                    // Цены для улучшения леса
                    $cost = $this->Data_Model->island_cost($is,$island->$res_level);
                    $need_wood = $cost['wood'] - $island->$res_count;
@@ -461,11 +461,11 @@ class Update_Model extends Model
                            // Склонения
                            switch($island->trade_resource)
                            {
-                               case 1: $word = 'расширились'; break;
-                               case 2: $word = 'расширился'; break;
-                               default: $word = 'расширилась'; break;
+                               case 1: $word = 'expanded'; break;
+                               case 2: $word = 'expanded'; break;
+                               default: $word = 'expanded'; break;
                            }
-                           $text = '<b>'.$res_name.'</b> расширилась на острове <a href="'.$this->config->item('base_url').'game/island/'.$island->id.'/">'.$island->name.' ('.$island->x.':'.$island->y.')</a>!';
+                           $text = '<b>'.$res_name.'</b> expanded on the island <a href="'.$this->config->item('base_url').'game/island/'.$island->id.'/">'.$island->name.' ('.$island->x.':'.$island->y.')</a>!';
                            for ($i = 0; $i <= 15; $i++)
                            {
                                $town_text = 'city'.$i;
@@ -586,14 +586,14 @@ class Update_Model extends Model
                                {
                                    // При покупке - погрузка в порту чужого города
                                    $text = '';
-                                   if ($mission->trade_wood_count > 0){ $text .= '<li class="wood"><span class="textLabel">Стройматериалы: </span>'.($mission->trade_wood_count).'</li> по цене:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_wood_cost.'</li><br>';}
-                                   if ($mission->trade_wine_count > 0){$text .= '<li class="wine"><span class="textLabel">Виноград: </span>'.($mission->trade_wine_count).'</li> по цене:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_wine_cost.'</li><br>';}
-                                   if ($mission->trade_marble_count > 0){$text .= '<li class="marble"><span class="textLabel">Мрамор: </span>'.($mission->trade_marble_count).'</li> по цене:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_marble_cost.'</li><br>';}
-                                   if ($mission->trade_crystal_count > 0){$text .= '<li class="glass"><span class="textLabel">Хрусталь: </span>'.($mission->trade_crystal_count).'</li> по цене:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_crystal_cost.'</li><br>';}
-                                   if ($mission->trade_sulfur_count > 0){$text .= '<li class="sulfur"><span class="textLabel">Сера: </span>'.($mission->trade_sulfur_count).'</li> по цене:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_sulfur_cost.'</li><br>';}
+                                   if ($mission->trade_wood_count > 0){ $text .= '<li class="wood"><span class="textLabel">Building Materials: </span>'.($mission->trade_wood_count).'</li> at the price of:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_wood_cost.'</li><br>';}
+                                   if ($mission->trade_wine_count > 0){$text .= '<li class="wine"><span class="textLabel">Wine: </span>'.($mission->trade_wine_count).'</li> at the price of:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_wine_cost.'</li><br>';}
+                                   if ($mission->trade_marble_count > 0){$text .= '<li class="marble"><span class="textLabel">Marble: </span>'.($mission->trade_marble_count).'</li> at the price of:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_marble_cost.'</li><br>';}
+                                   if ($mission->trade_crystal_count > 0){$text .= '<li class="glass"><span class="textLabel">Crystal Glass: </span>'.($mission->trade_crystal_count).'</li> at the price of:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_crystal_cost.'</li><br>';}
+                                   if ($mission->trade_sulfur_count > 0){$text .= '<li class="sulfur"><span class="textLabel">Sulfur: </span>'.($mission->trade_sulfur_count).'</li> at the price of:<li class="gold"><span class="textLabel">Золото: </span>'.$trade_town->branch_trade_sulfur_cost.'</li><br>';}
                                    $text .= '</ul>';
                                    // Сообщение отправителю
-                                   $text_from = 'Ваш торговый флот из <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a> прибыл в <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> и сейчас погружает: <ul class="resources">'.$text;
+                                   $text_from = 'Your trading fleet from <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a> arrived in <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> Has brought: <ul class="resources">'.$text;
                                    $town_from_message = array(
                                        'user' => $mission->user,
                                        'town' => $mission->from,
@@ -603,7 +603,7 @@ class Update_Model extends Model
                                    if ($mission->user != $trade_town->user)
                                    {
                                        // Сообщение получателю
-                                       $text_to = 'Торговый флот из <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a> прибыл в ваш город <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> и сейчас погружает: <ul class="resources">'.$text;
+                                       $text_to = 'A foreign fleet from <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a> arrived in your city <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> and brought: <ul class="resources">'.$text;
                                        $town_to_message = array(
                                            'user' => $trade_town->user,
                                            'town' => $mission->to,
@@ -650,7 +650,7 @@ class Update_Model extends Model
                                }
                                else
                                {
-                                   $text = 'Ваш торговый флот ушел из <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> пустым и теперь возвращается в <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a>.';
+                                   $text = 'Your trade fleet left <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> empty, and now returns to <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a>.';
                                    $town_message = array(
                                        'user' => $mission->user,
                                        'town' => $mission->from,
@@ -681,12 +681,12 @@ class Update_Model extends Model
                                // Добавляем армию
                                $this->db->insert($this->session->userdata('universe').'_army', array('city' => $mission->to));
                                // Сообщение
-                               $text = 'Мы основали новый город (<a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a>). Ваш торговый флот выгрузил: <ul class="resources">';
-                               $text .= '<li class="wood"><span class="textLabel">Стройматериалы: </span>'.($mission->wood-1000).'</li>';
-                               if ($mission->wine > 0){$text .= '<li class="wine"><span class="textLabel">Виноград: </span>'.($mission->wine).'</li>';}
-                               if ($mission->marble > 0){$text .= '<li class="marble"><span class="textLabel">Мрамор: </span>'.($mission->marble).'</li>';}
-                               if ($mission->crystal > 0){$text .= '<li class="glass"><span class="textLabel">Хрусталь: </span>'.($mission->crystal).'</li>';}
-                               if ($mission->sulfur > 0){$text .= '<li class="sulfur"><span class="textLabel">Сера: </span>'.($mission->sulfur).'</li>';}
+                               $text = 'We founded a new city (<a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a>). Your trade fleet unloaded: <ul class="resources">';
+                               $text .= '<li class="wood"><span class="textLabel">Building Materials: </span>'.($mission->wood-1000).'</li>';
+                               if ($mission->wine > 0){$text .= '<li class="wine"><span class="textLabel">Wine: </span>'.($mission->wine).'</li>';}
+                               if ($mission->marble > 0){$text .= '<li class="marble"><span class="textLabel">Marble: </span>'.($mission->marble).'</li>';}
+                               if ($mission->crystal > 0){$text .= '<li class="glass"><span class="textLabel">Crystal Glass: </span>'.($mission->crystal).'</li>';}
+                               if ($mission->sulfur > 0){$text .= '<li class="sulfur"><span class="textLabel">Sulfur: </span>'.($mission->sulfur).'</li>';}
                                $text .= '</ul>';
                                $town_message = array(
                                             'user' => $mission->user,
@@ -718,11 +718,11 @@ class Update_Model extends Model
                                    $this->db->update($this->session->userdata('universe').'_towns');
                                    // Сообщение
                                    $text = '';
-                                   if ($mission->wood > 0){ $text .= '<li class="wood"><span class="textLabel">Стройматериалы: </span>'.($mission->wood).'</li>';}
-                                   if ($mission->wine > 0){$text .= '<li class="wine"><span class="textLabel">Виноград: </span>'.($mission->wine).'</li>';}
-                                   if ($mission->marble > 0){$text .= '<li class="marble"><span class="textLabel">Мрамор: </span>'.($mission->marble).'</li>';}
-                                   if ($mission->crystal > 0){$text .= '<li class="glass"><span class="textLabel">Хрусталь: </span>'.($mission->crystal).'</li>';}
-                                   if ($mission->sulfur > 0){$text .= '<li class="sulfur"><span class="textLabel">Сера: </span>'.($mission->sulfur).'</li>';}
+                                   if ($mission->wood > 0){ $text .= '<li class="wood"><span class="textLabel">Building Materials: </span>'.($mission->wood).'</li>';}
+                                   if ($mission->wine > 0){$text .= '<li class="wine"><span class="textLabel">Wine: </span>'.($mission->wine).'</li>';}
+                                   if ($mission->marble > 0){$text .= '<li class="marble"><span class="textLabel">Marble: </span>'.($mission->marble).'</li>';}
+                                   if ($mission->crystal > 0){$text .= '<li class="glass"><span class="textLabel">Crystal Glass: </span>'.($mission->crystal).'</li>';}
+                                   if ($mission->sulfur > 0){$text .= '<li class="sulfur"><span class="textLabel">Sulfur: </span>'.($mission->sulfur).'</li>';}
                                    $text .= '</ul>';
                                    $text_from = 'Ваш торговый флот из <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->from]->island.'/'.$mission->from.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->from]->name.'</a> прибыл в <a href="'.$this->config->item('base_url').'game/island/'.$this->Data_Model->temp_towns_db[$mission->to]->island.'/'.$mission->to.'/">'.$this->CI->Data_Model->temp_towns_db[$mission->to]->name.'</a> и привез следующие товары: <ul class="resources">'.$text;
                                    if ($mission->user != $trade_town->user)
